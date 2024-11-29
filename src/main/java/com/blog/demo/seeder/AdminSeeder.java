@@ -19,22 +19,18 @@ public class AdminSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Cek jika akun admin sudah ada
         if (userService.existsByUsername("admin")) {
             System.out.println("Akun admin sudah ada.");
             return;
         }
 
-        // Membuat akun admin baru
-        User admin = new User();
+        User admin = new User(null, null, null, null);
         admin.setUsername("admin");
-        admin.setEmail("admin@domain.com");
-        admin.setPassword(passwordEncoder.encode("adminpassword"));  // Password yang dienkripsi
-        admin.setRole(Role.ADMIN);  // Set role sebagai ADMIN
+        admin.setEmail("admin@gmail.com");
+        admin.setPassword(passwordEncoder.encode("admin123"));
+        admin.setRole(Role.ADMIN);
 
-        // Simpan ke dalam database
         userService.createUser(admin);
-
         System.out.println("Akun admin berhasil dibuat.");
     }
 }

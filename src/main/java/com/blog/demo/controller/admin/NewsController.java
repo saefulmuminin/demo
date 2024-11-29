@@ -1,4 +1,4 @@
-package com.blog.demo.controller;
+package com.blog.demo.controller.admin;
 
 import com.blog.demo.model.News;
 import com.blog.demo.service.NewsService;
